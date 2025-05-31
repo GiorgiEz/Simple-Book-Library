@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# SQLite database
+*.db
+
+# IDEs and editor settings
+.idea/
+.vscode/
+
+# MacOS junk
+.DS_Store
+
+# Logs
+*.log
+
+# Python test cache
+.pytest_cache/
+
+# Pydantic compiled files (just in case)
+pydantic_cache/
+
+# FastAPI static cache (if any)
+staticfiles/
+
+# Coverage reports
+htmlcov/
+.coverage
+.cache/
+
+# Build and dist
+build/
+dist/
+*.egg-info/

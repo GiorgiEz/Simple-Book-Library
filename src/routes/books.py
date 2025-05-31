@@ -7,7 +7,7 @@ from sqlmodel import select
 
 router = APIRouter(prefix="/books", tags=["Books"])
 
-@router.post("/books/")
+@router.post("/")
 def create_book(book: Book, session: SessionDep) -> Book:
     """
     Create a new book in the database.
@@ -24,7 +24,7 @@ def create_book(book: Book, session: SessionDep) -> Book:
     session.refresh(book)
     return book
 
-@router.get("/books/")
+@router.get("/")
 def read_books(session: SessionDep, offset: int = 0, limit: Annotated[int, Query(le=100)] = 100) -> list[Book]:
     """
     Retrieve a list of all books with optional pagination.
@@ -40,7 +40,7 @@ def read_books(session: SessionDep, offset: int = 0, limit: Annotated[int, Query
     books = session.exec(select(Book).offset(offset).limit(limit)).all()
     return books
 
-@router.get("/books/{book_id}")
+@router.get("/{book_id}")
 def read_book(book_id: int, session: SessionDep) -> Book:
     """
     Retrieve a single book by its ID.
@@ -60,7 +60,7 @@ def read_book(book_id: int, session: SessionDep) -> Book:
         raise HTTPException(status_code=404, detail="Book not found")
     return book
 
-@router.delete("/books/{book_id}")
+@router.delete("/{book_id}")
 def delete_book(book_id: int, session: SessionDep):
     """
     Delete a book by its ID.

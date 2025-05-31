@@ -35,7 +35,7 @@ Simple-Book-Library/
 │   ├── main.py             # FastAPI app
 │   ├── models.py           # Book model using SQLModel
 │   ├── database.py         # SQLite database setup and session dependency
-│   ├── __init__.py     # package file
+│   ├── __init__.py         # package file
 ├── .gitignore
 ├── requirements.txt
 └── README.md
